@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
 @Entity
 public class Hospital {
 	@Id
@@ -14,32 +15,40 @@ public class Hospital {
 	private int id;
 	private String name;
 	private String website;
-	@OneToMany
-	private List<Branch> branchs;
+
+	@OneToMany(mappedBy = "hospital")
+	private List<Branch> branch;
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getWebsite() {
 		return website;
 	}
+
 	public void setWebsite(String website) {
 		this.website = website;
 	}
-	public List<Branch> getBranchs() {
-		return branchs;
+
+	public List<Branch> getBranch() {
+		return branch;
 	}
-	public void setBranchs(List<Branch> branchs) {
-		this.branchs = branchs;
+
+	public void setBranch(List<Branch> branch) {
+		this.branch = branch;
 	}
-	
-	
+
 }
