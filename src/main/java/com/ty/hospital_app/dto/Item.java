@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -11,41 +12,51 @@ public class Item {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String med_Name;
+	private String medicName;
 	private double cost;
-	private int qty;
+	private int quatity;
 	@ManyToOne
-	private MedOrder medOrder;
+	@JoinColumn
+	private MedOrder medOrder ;
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getMed_Name() {
-		return med_Name;
+
+	public String getMedicName() {
+		return medicName;
 	}
-	public void setMed_Name(String med_Name) {
-		this.med_Name = med_Name;
+
+	public void setMedicName(String medicName) {
+		this.medicName = medicName;
 	}
+
 	public double getCost() {
 		return cost;
 	}
+
 	public void setCost(double cost) {
 		this.cost = cost;
 	}
-	public int getQty() {
-		return qty;
+
+	public int getQuatity() {
+		return quatity;
 	}
-	public void setQty(int qty) {
-		this.qty = qty;
+
+	public void setQuatity(int quatity) {
+		this.quatity = quatity;
 	}
+
 	public MedOrder getMedOrder() {
 		return medOrder;
 	}
+
 	public void setMedOrder(MedOrder medOrder) {
 		this.medOrder = medOrder;
 	}
-	
-	
+
 }
